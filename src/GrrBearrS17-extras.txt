@@ -1,5 +1,5 @@
 title:GrrBearrS17-extras
-description:Season 17 Wishlist Extras
+description:Season 17 Wishlist Extras. No weapon in the Little Light builder, for some reason.
 
 
 // Without Remorse (controller,pve)
