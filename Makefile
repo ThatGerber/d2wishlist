@@ -17,6 +17,7 @@ $(SRC_DIR)/voltron.txt:
 # DIM List
 
 $(WISHLIST_TXT): $(wildcard $(SRC_DIR)/*.txt) $(SRCS)
+	sed -i '' 's|//notes: tag|//notes: (GrrBearr) tag|'  src/GrrBearrS17.txt
 	cat $^ > $@
 
 
