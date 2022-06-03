@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := build
 
-SHELL := /bin/zsh
+SHELL := /bin/bash
 
 WISHLIST_TXT = wishlist.txt
 
