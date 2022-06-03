@@ -2,7 +2,7 @@ title:GrrBearrS17
 description:Season 17 Wishlist
 
 // Nezarec's Whisper (controller,pve)
-//notes: tags:controller,pve
+//notes: (GrrBearr) tags:controller,pve
 dimwishlist:item=254636484&perks=1263609309,3721627275,951095735,1546637391
 dimwishlist:item=254636484&perks=1263609309,3721627275,951095735,1048183818
 dimwishlist:item=254636484&perks=1263609309,3721627275,951095735,4104185692
@@ -18,7 +18,7 @@ dimwishlist:item=254636484&perks=1934171651,679225683,951095735,4104185692
 
 
 // Tears of Contrition - PVE (pve,controller)
-//notes: tags:pve,controller
+//notes: (GrrBearr) tags:pve,controller
 dimwishlist:item=1366394399&perks=839105230,3230963543,3400784728,3038247973
 dimwishlist:item=1366394399&perks=839105230,3230963543,3400784728,1546637391
 dimwishlist:item=1366394399&perks=839105230,3230963543,3300816228,3038247973
@@ -76,7 +76,7 @@ dimwishlist:item=1366394399&perks=1467527085,106909392,1428297954,1546637391
 
 
 // Hollow Denial - PVE (pve,controller)
-//notes: tags:pve,controller
+//notes: (GrrBearr) tags:pve,controller
 dimwishlist:item=2323544076&perks=1840239774,2680121939,744594675,2848615171
 dimwishlist:item=2323544076&perks=1840239774,2680121939,744594675,557221067
 dimwishlist:item=2323544076&perks=1840239774,2680121939,1048183818,2848615171
@@ -646,7 +646,7 @@ dimwishlist:item=2490988246&perks=1482024992,3230963543,402033656,781192741
 
 
 // Lunulata-4b - Lunulata-4b PVE (pve,controller)
-//notes: tags:pve,controller
+//notes: (GrrBearr) tags:pve,controller
 dimwishlist:item=2513965917&perks=852209214,3827198035,744594675,2652708987
 dimwishlist:item=2513965917&perks=852209214,3827198035,744594675,2610012052
 dimwishlist:item=2513965917&perks=852209214,3827198035,744594675,124408337
@@ -674,7 +674,7 @@ dimwishlist:item=2513965917&perks=4067834857,3311977193,2846385770,124408337
 
 
 // Strident Whistle - Strident Whistle PVE (pve,controller)
-//notes: tags:pve,controller
+//notes: (GrrBearr) tags:pve,controller
 dimwishlist:item=2591241074&perks=1196733167,16392701,201365942,3365897133
 dimwishlist:item=2591241074&perks=1196733167,16392701,201365942,1546637391
 dimwishlist:item=2591241074&perks=1196733167,16392701,201365942,2652708987
@@ -758,7 +758,7 @@ dimwishlist:item=2591241074&perks=852209214,3827198035,744594675,2848615171
 
 
 // Riptide - PVE Autoloading (pve,controller)
-//notes: tags:pve,controller
+//notes: (GrrBearr) tags:pve,controller
 dimwishlist:item=2715240478&perks=839105230,689005463,3300816228,1546637391
 dimwishlist:item=2715240478&perks=839105230,689005463,3300816228,2610012052
 dimwishlist:item=2715240478&perks=839105230,689005463,3300816228,3523296417
@@ -798,7 +798,7 @@ dimwishlist:item=2715240478&perks=4090651448,3868766766,3300816228,3523296417
 
 
 // Riptide - PVE Normal (pve,controller)
-//notes: tags:pve,controller
+//notes: (GrrBearr) tags:pve,controller
 dimwishlist:item=2715240478&perks=839105230,689005463,1570042021,2610012052
 dimwishlist:item=2715240478&perks=839105230,689005463,1570042021,4104185692
 dimwishlist:item=2715240478&perks=839105230,689005463,1570042021,2978966579

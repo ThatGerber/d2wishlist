@@ -2,6 +2,8 @@
 
 SHELL := /bin/bash
 
+unameOut := $(shell uname -s)
+
 WISHLIST_TXT = wishlist.txt
 
 SRC_DIR = src
@@ -15,9 +17,15 @@ $(SRC_DIR)/voltron.txt:
 	wget -O $@ $(VOLTRON_TXT)
 
 # DIM List
+sed_file := src/GrrBearrS17.txt
+sed_lookup := s|//notes: tag|//notes: (GrrBearr) tag|
 
 $(WISHLIST_TXT): $(wildcard $(SRC_DIR)/*.txt) $(SRCS)
-	sed -i '' 's|//notes: tag|//notes: (GrrBearr) tag|'  src/GrrBearrS17.txt
+ifeq ($(findstring Darwin,$(unameOut)), Darwin)
+	sed -i '' -e "$(sed_lookup)" "$(sed_file)";
+else
+	sed -i -e "$(sed_lookup)" "$(sed_file)";
+endif
 	cat $^ > $@
 
 
