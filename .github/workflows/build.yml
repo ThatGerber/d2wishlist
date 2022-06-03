@@ -35,7 +35,7 @@ jobs:
 
       - name: Get current time
         id: timestamp
-        run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S'"
+        run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S')"
 
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
