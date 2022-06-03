@@ -21,10 +21,13 @@ jobs:
         with:
           name: wishlist_latest
           path: wishlist.txt
+          if-no-files-found: error
 
   release:
     runs-on: ubuntu-latest
     steps:
+
+      - uses: actions/checkout@v3
 
       - uses: actions/download-artifact@v3
         with:
