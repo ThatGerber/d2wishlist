@@ -20,7 +20,7 @@ $(SRC_DIR)/voltron.txt:
 sed_file := src/GrrBearrS17.txt
 sed_lookup := s|//notes: tag|//notes: (GrrBearr) tag|
 
-$(WISHLIST_TXT): $(wildcard $(SRC_DIR)/*.txt) $(SRCS)
+$(WISHLIST_TXT): $(SRC_DIR)/_header.txt $(wildcard $(SRC_DIR)/*.txt) $(SRCS)
 ifeq ($(findstring Darwin,$(unameOut)), Darwin)
 	sed -i '' -e "$(sed_lookup)" "$(sed_file)";
 else
