@@ -39,15 +39,11 @@ jobs:
 
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
-          add: .
+          add: wishlist.txt --force
           default_author: github_actor
           message: GitHub Actions release - ${{ steps.timestamp.outputs.now }}
           push: origin release --set-upstream --force
           new_branch: release
-
-      # - uses: actions/download-artifact@v3
-      #   with:
-      #     name: wishlist_latest
 
       # - uses: "marvinpinto/action-automatic-releases@latest"
       #   with:
