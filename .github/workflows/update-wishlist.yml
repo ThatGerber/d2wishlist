@@ -3,6 +3,8 @@
 name: Build Latest Wishlist
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
   schedule:
     - cron:  '30 2,10,18 * * *'
