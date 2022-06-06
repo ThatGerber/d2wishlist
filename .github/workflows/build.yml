@@ -17,11 +17,13 @@ jobs:
         run: |
             (
               echo ''
-              echo '// Build Info:'
-              echo '//   Job:      ${{ env.GITHUB_JOB }}'
-              echo '//   Event:    ${{ env.GITHUB_EVENT_NAME }}'
-              echo '//   Workflow: ${{ env.GITHUB_WORKFLOW }}'
-              echo '//   Time:     ${{ steps.timestamp.outputs.now }}'
+              echo "// Build Info:"
+              echo "//   Job:      ${GITHUB_JOB}"
+              echo "//   Event:    ${GITHUB_EVENT_NAME}"
+              echo "//   Workflow: ${GITHUB_WORKFLOW}"
+              echo "//   Time:     ${{ steps.timestamp.outputs.now }}"
+              echo ''
+              echo ''
             ) >> ./src/_header.txt
 
       - name: Build
