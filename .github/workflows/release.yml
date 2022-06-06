@@ -22,9 +22,6 @@ jobs:
         with:
           name: wishlist_latest
 
-      - name: Move artifact to root
-        run: mv ${{steps.download.outputs.download-path}}/wishlist.txt ./wishlist.txt
-
       - name: Get current time
         id: timestamp
         run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S')"
