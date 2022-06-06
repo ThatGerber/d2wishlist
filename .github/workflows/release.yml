@@ -1,6 +1,6 @@
 
 ---
-name: Create new wishlist release
+name: (Release) wishlist
 
 on:
   workflow_dispatch:

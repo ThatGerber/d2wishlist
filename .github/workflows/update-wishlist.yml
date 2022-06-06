@@ -1,6 +1,6 @@
 
 ---
-name: Build Latest Wishlist
+name: Build & Release Latest Wishlist
 
 on:
   push:
