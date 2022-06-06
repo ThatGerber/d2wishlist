@@ -13,4 +13,5 @@ jobs:
   build-wishlist:
     uses: ./.github/workflows/build.yml
   release-wishlist:
+    needs: build-wishlist
     uses: ./.github/workflows/release.yml
