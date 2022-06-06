@@ -32,8 +32,9 @@ $(BUILD_SRC_DIR) $(BUILD_DIR):
 	mkdir -p $@
 
 
-BUILD_FILES+=$(BUILD_SRC_DIR)/_header.txt
-$(BUILD_SRC_DIR)/_header.txt: $(SRC_DIR)/_header.txt $(BUILD_SRC_DIR)
+LIST_HEADER = $(BUILD_SRC_DIR)/_header.txt
+BUILD_FILES+=$(LIST_HEADER)
+$(LIST_HEADER): $(SRC_DIR)/_header.txt $(BUILD_SRC_DIR)
 	cp $< $@
 
 
