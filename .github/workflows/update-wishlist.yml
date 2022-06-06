@@ -1,0 +1,14 @@
+
+---
+name: Build Latest Wishlist
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '30 2,10,18 * * *'
+
+jobs:
+  build-wishlist:
+    uses: ./.github/workflows/build.yml
+  release-wishlist:
+    uses: ./.github/workflows/release.yml
