@@ -85,7 +85,9 @@ $(USER_LIST_TXT): $(filter $(BUILD_SRC_DIR)/$(SRC_FILE_PREFIX)%.txt,$(BUILD_FILE
 	( $(call build_header,$(TITLE),$(DESC)) ) > $@
 	( $(call build_info) ) >> $@
 	( cat $(filter-out $(TRASH_LIST),$(sort $(filter %.txt,$^))) ) >> $@
-	( cat $(sort $(filter $(TRASH_LIST),$^)) ) >> $@
+
+	$(info Disabled trash list until they allow perks to be trashed)
+	# ( cat $(sort $(filter $(TRASH_LIST),$^)) ) >> $@
 
 
 
@@ -99,7 +101,8 @@ $(WISHLIST_TXT): $(filter %.txt,$(BUILD_FILES))
 	( $(call build_header,$(TITLE),$(DESC)) ) > $@
 	( $(call build_info) ) >> $@
 	( cat $(filter-out $(TRASH_LIST),$(sort $(filter %.txt,$^))) ) >> $@
-	( cat $(sort $(filter $(TRASH_LIST),$^)) ) >> $@
+	$(info Disabled trash list until they allow perks to be trashed)
+	# ( cat $(sort $(filter $(TRASH_LIST),$^)) ) >> $@
 
 
 # Combined target to force all to build 2 items
