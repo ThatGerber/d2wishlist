@@ -3,56 +3,56 @@ description:Weapons and rolls I'm not interested in.
 
 // Perk: Turnabout
 //notes: (GrrBearr) I just don't like Turnabout; regular or enhanced.
-dimwishlist:item=-69420&perks=2209918983
-dimwishlist:item=-69420&perks=2000295559
-dimwishlist:item=-69420&perks=3583283547
-dimwishlist:item=-69420&perks=2039982603
+dimwishlist:item=-69420&perks=-2209918983
+dimwishlist:item=-69420&perks=-2000295559
+dimwishlist:item=-69420&perks=-3583283547
+dimwishlist:item=-69420&perks=-2039982603
 
 // Perk: Fragile Focus
 //notes: (GrrBearr) Fragile Focus seems questionably useful.
-dimwishlist:item=-69420&perks=1609056795
-dimwishlist:item=-69420&perks=2451262963
-dimwishlist:item=-69420&perks=2157167895
-dimwishlist:item=-69420&perks=1167548551
+dimwishlist:item=-69420&perks=-1609056795
+dimwishlist:item=-69420&perks=-2451262963
+dimwishlist:item=-69420&perks=-2157167895
+dimwishlist:item=-69420&perks=-1167548551
 
 // Perk: Tunnel Vision
 //notes: (GrrBearr) I've yet to want a weapon with tunnel vision.
-dimwishlist:item=-69420&perks=2946784966
-dimwishlist:item=-69420&perks=987673306
-dimwishlist:item=-69420&perks=2313994304
-dimwishlist:item=-69420&perks=1836377054
+dimwishlist:item=-69420&perks=-2946784966
+dimwishlist:item=-69420&perks=-987673306
+dimwishlist:item=-69420&perks=-2313994304
+dimwishlist:item=-69420&perks=-1836377054
 
 // Perk: Shoot to Loot
 //notes: (GrrBearr) I'm not sure Shoot to Loot is a great perk for controller.
-dimwishlist:item=-69420&perks=2840833776
-dimwishlist:item=-69420&perks=3700496672
-dimwishlist:item=-69420&perks=2647129222
-dimwishlist:item=-69420&perks=4030961232
+dimwishlist:item=-69420&perks=-2840833776
+dimwishlist:item=-69420&perks=-3700496672
+dimwishlist:item=-69420&perks=-2647129222
+dimwishlist:item=-69420&perks=-4030961232
 
 // Perk: Compulsive Reloader
 //notes: (GrrBearr) Compulsive Reloader is just too hard to proc to be good.
-dimwishlist:item=-69420&perks=2148166320
-dimwishlist:item=-69420&perks=2302255078
-dimwishlist:item=-69420&perks=595108252
-dimwishlist:item=-69420&perks=671806388
+dimwishlist:item=-69420&perks=-2148166320
+dimwishlist:item=-69420&perks=-2302255078
+dimwishlist:item=-69420&perks=-595108252
+dimwishlist:item=-69420&perks=-671806388
 
 // Perk: Under Pressure
 //notes: (GrrBearr) Maybe someone likes Under Pressure, but I don't.
-dimwishlist:item=-69420&perks=714111723
-dimwishlist:item=-69420&perks=2694573499
-dimwishlist:item=-69420&perks=1645158859
-dimwishlist:item=-69420&perks=3755250867
+dimwishlist:item=-69420&perks=-714111723
+dimwishlist:item=-69420&perks=-2694573499
+dimwishlist:item=-69420&perks=-1645158859
+dimwishlist:item=-69420&perks=-3755250867
 
 // Perk: Eye of the Storm
 //notes: (GrrBearr) Eye of the Storm isn't for me.
-dimwishlist:item=-69420&perks=936031093
-dimwishlist:item=-69420&perks=3667513913
-dimwishlist:item=-69420&perks=699525795
-dimwishlist:item=-69420&perks=3719974635
+dimwishlist:item=-69420&perks=-936031093
+dimwishlist:item=-69420&perks=-3667513913
+dimwishlist:item=-69420&perks=-699525795
+dimwishlist:item=-69420&perks=-3719974635
 
 // Perk: Sneak Bow
 //notes: (GrrBearr) I don't know when I would use Sneak Bow over anything else.
-dimwishlist:item=-69420&perks=1209072696
-dimwishlist:item=-69420&perks=3160450206
-dimwishlist:item=-69420&perks=908147344
-dimwishlist:item=-69420&perks=1663363584
+dimwishlist:item=-69420&perks=-1209072696
+dimwishlist:item=-69420&perks=-3160450206
+dimwishlist:item=-69420&perks=-908147344
+dimwishlist:item=-69420&perks=-1663363584
