@@ -33,6 +33,7 @@ endef
 SRC_DIR=src
 SRC_FILE_PREFIX=GrrBearr
 SRC_FILES=$(wildcard $(SRC_DIR)/$(SRC_FILE_PREFIX)*.txt)
+TRASH_LIST=$(BUILD_SRC_DIR)/$(SRC_FILE_PREFIX)Trash.txt
 
 # Build files
 BUILD_DIR=build
@@ -62,6 +63,7 @@ BUILD_FILES+=$(patsubst $(SRC_DIR)/$(SRC_FILE_PREFIX)%,$(BUILD_SRC_DIR)/$(SRC_FI
 # DIRS
 $(BUILD_SRC_DIR) $(BUILD_DIR): ; mkdir -p $@
 
+
 # External Sources
 $(VOLTRON_TXT): ; curl -Lo $@ $(VOLTRON_TXT_URL)
 
@@ -82,7 +84,10 @@ $(USER_LIST_TXT): $(filter $(BUILD_SRC_DIR)/$(SRC_FILE_PREFIX)%.txt,$(BUILD_FILE
 	$(info Sources: $^ )
 	( $(call build_header,$(TITLE),$(DESC)) ) > $@
 	( $(call build_info) ) >> $@
-	( cat $(filter %.txt,$^) ) >> $@
+	( cat $(filter-out $(TRASH_LIST),$(sort $(filter %.txt,$^))) ) >> $@
+	( cat $(sort $(filter $(TRASH_LIST),$^)) ) >> $@
+
+
 
 
 # Combined Lists
@@ -93,12 +98,16 @@ $(WISHLIST_TXT): $(filter %.txt,$(BUILD_FILES))
 	$(info Sources: $^ )
 	( $(call build_header,$(TITLE),$(DESC)) ) > $@
 	( $(call build_info) ) >> $@
-	( cat $(filter %.txt,$^) ) >> $@
+	( cat $(filter-out $(TRASH_LIST),$(sort $(filter %.txt,$^))) ) >> $@
+	( cat $(sort $(filter $(TRASH_LIST),$^)) ) >> $@
+
 
 # Combined target to force all to build 2 items
 $(BUILD_DIR)/completed: $(WISHLIST_TXT) $(USER_LIST_TXT)
 
+
 all: $(BUILD_DIR)/completed
+
 
 clean:
 	rm -f \
