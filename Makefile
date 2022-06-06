@@ -1,6 +1,6 @@
-.DEFAULT_GOAL := $(WISHLIST_TXT)
-
+.DEFAULT_GOAL := all
 SHELL := /bin/bash
+
 
 unameOut := $(shell uname -s)
 
@@ -10,20 +10,21 @@ SRC_FILES=$(wildcard $(SRC_DIR)/GrrBearr*.txt)
 
 BUILD_DIR=build
 BUILD_SRC_DIR=$(BUILD_DIR)/src
+BUILD_FILES ?=
 
+$(BUILD_FILES): $(BUILD_SRC_DIR)
 
+# My List
+GRRBEARR_TXT = $(BUILD_DIR)/grrbearr.txt
+$(GRRBEARR_TXT): $(BUILD_DIR)
+
+# Combined list
 WISHLIST_TXT=$(BUILD_DIR)/wishlist.txt
 $(WISHLIST_TXT): $(BUILD_DIR)
-
-
-# Header info
-LIST_HEADER = $(BUILD_SRC_DIR)/_header.txt
-BUILD_FILES += $(LIST_HEADER)
 
 # External Sources
 VOLTRON_TXT_URL = https://raw.githubusercontent.com/48klocs/dim-wish-list-sources/master/voltron.txt
 VOLTRON_TXT = $(BUILD_SRC_DIR)/voltron.txt
-BUILD_FILES+=$(VOLTRON_TXT)
 
 
 # DIRS
@@ -31,29 +32,38 @@ $(BUILD_SRC_DIR) $(BUILD_DIR):
 	mkdir -p $@
 
 
-$(LIST_HEADER): $(SRC_DIR)/_header.txt
+BUILD_FILES+=$(BUILD_SRC_DIR)/_header.txt
+$(BUILD_DIR)/%/_header.txt: %/_header.txt
 	cp $< $@
 
 
+BUILD_FILES+=$(VOLTRON_TXT)
 $(VOLTRON_TXT):
 	curl -Lo $@ $(VOLTRON_TXT_URL)
 
 
+BUILD_FILES+=$(patsubst $(SRC_DIR)/GrrBearr%,$(BUILD_SRC_DIR)/GrrBearr%,$(SRC_FILES))
 $(BUILD_SRC_DIR)/GrrBearr%.txt: $(SRC_DIR)/GrrBearr%.txt
-	( \
-		cat "$<" | sed -e "s|//notes: tag|//notes: (GrrBearr) tag|" \
-	) > "$@"
+	( cat "$<" | sed -e "s|//notes: tag|//notes: (GrrBearr) tag|" ) > "$@"
 
-BUILD_FILES+=$(patsubst $(SRC_DIR)%,$(BUILD_SRC_DIR)%,$(SRC_FILES))
 
-$(BUILD_FILES): $(BUILD_SRC_DIR)
-
-# My Lists
-$(info Source lists: $(BUILD_FILES))
-$(WISHLIST_TXT): $(LIST_HEADER) $(BUILD_FILES)
+# My List
+$(GRRBEARR_TXT): $(LIST_HEADER) $(filter $(BUILD_SRC_DIR)/GrrBearr%.txt,$(BUILD_FILES))
+	$(info Target: $@ )
+	$(info Sources: $^ )
 	cat $(filter %.txt,$^) > $@
 
-clean: ; rm -f $(WISHLIST_TXT)
+# Combined Lists
+$(WISHLIST_TXT): $(LIST_HEADER) $(filter %.txt,$(BUILD_FILES))
+	$(info Target: $@ )
+	$(info Sources: $^ )
+	cat $(filter %.txt,$^) > $@
+
+$(BUILD_DIR)/completed: $(WISHLIST_TXT) $(GRRBEARR_TXT)
+
+all: $(BUILD_DIR)/completed
+
+clean: ; rm -f $(BUILD_DIR)/completed $(WISHLIST_TXT) $(GRRBEARR_TXT)
 clobber: clean ; rm -f $(BUILD_FILES)
 
-.PHONY: clean clobber
+.PHONY: all clean clobber

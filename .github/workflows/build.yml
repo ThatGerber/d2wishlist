@@ -38,5 +38,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: wishlist_latest
-          path: build/wishlist.txt
+          path: build/*.txt
           if-no-files-found: error
