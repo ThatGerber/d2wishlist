@@ -33,7 +33,7 @@ $(BUILD_SRC_DIR) $(BUILD_DIR):
 
 
 BUILD_FILES+=$(BUILD_SRC_DIR)/_header.txt
-$(BUILD_DIR)/%/_header.txt: %/_header.txt
+$(BUILD_SRC_DIR)/_header.txt: $(SRC_DIR)/_header.txt $(BUILD_SRC_DIR)
 	cp $< $@
 
 
@@ -43,17 +43,19 @@ $(VOLTRON_TXT):
 
 
 BUILD_FILES+=$(patsubst $(SRC_DIR)/GrrBearr%,$(BUILD_SRC_DIR)/GrrBearr%,$(SRC_FILES))
-$(BUILD_SRC_DIR)/GrrBearr%.txt: $(SRC_DIR)/GrrBearr%.txt
+$(BUILD_SRC_DIR)/GrrBearr%.txt: $(SRC_DIR)/GrrBearr%.txt $(BUILD_SRC_DIR)
 	( cat "$<" | sed -e "s|//notes: tag|//notes: (GrrBearr) tag|" ) > "$@"
 
 
 # My List
+$(GRRBEARR_TXT): $(BUILD_DIR)
 $(GRRBEARR_TXT): $(LIST_HEADER) $(filter $(BUILD_SRC_DIR)/GrrBearr%.txt,$(BUILD_FILES))
 	$(info Target: $@ )
 	$(info Sources: $^ )
 	cat $(filter %.txt,$^) > $@
 
 # Combined Lists
+$(WISHLIST_TXT): $(BUILD_DIR)
 $(WISHLIST_TXT): $(LIST_HEADER) $(filter %.txt,$(BUILD_FILES))
 	$(info Target: $@ )
 	$(info Sources: $^ )
@@ -63,7 +65,14 @@ $(BUILD_DIR)/completed: $(WISHLIST_TXT) $(GRRBEARR_TXT)
 
 all: $(BUILD_DIR)/completed
 
-clean: ; rm -f $(BUILD_DIR)/completed $(WISHLIST_TXT) $(GRRBEARR_TXT)
-clobber: clean ; rm -f $(BUILD_FILES)
+clean:
+	rm -f \
+		$(BUILD_FILES) \
+		$(WISHLIST_TXT) \
+		$(GRRBEARR_TXT) \
+		$(BUILD_DIR)/completed
+	rmdir \
+		$(BUILD_SRC_DIR) \
+		$(BUILD_DIR)
 
 .PHONY: all clean clobber
