@@ -1,6 +1,24 @@
 .DEFAULT_GOAL := all
 SHELL := /bin/bash
 
+define build_header
+echo "title:$(1)"; \
+echo "description:$(2)";
+endef
+
+define build_info
+echo ''; \
+echo "// Build Info:"; \
+echo "//   Time:      $(shell date +'%Y-%m-%dT%H:%M:%S')"; \
+echo "//   Workflow:  $${GITHUB_WORKFLOW}"; \
+echo "//   Event:     $${GITHUB_EVENT_NAME}"; \
+echo "//   Job:       $${GITHUB_JOB}:$${GITHUB_RUN_NUMBER}"; \
+echo "//   Run ID:    $${GITHUB_RUN_ID}"; \
+echo "//   Attempt:   $${GITHUB_RUN_ATTEMPT}"; \
+echo ''; \
+echo '';
+endef
+
 
 unameOut := $(shell uname -s)
 
@@ -32,36 +50,46 @@ $(BUILD_SRC_DIR) $(BUILD_DIR):
 	mkdir -p $@
 
 
-LIST_HEADER = $(BUILD_SRC_DIR)/_header.txt
-BUILD_FILES+=$(LIST_HEADER)
-$(LIST_HEADER): $(SRC_DIR)/_header.txt $(BUILD_SRC_DIR)
-	cp $< $@
-
-
 BUILD_FILES+=$(VOLTRON_TXT)
-$(VOLTRON_TXT):
+$(VOLTRON_TXT): $(BUILD_SRC_DIR)
 	curl -Lo $@ $(VOLTRON_TXT_URL)
 
 
 BUILD_FILES+=$(patsubst $(SRC_DIR)/GrrBearr%,$(BUILD_SRC_DIR)/GrrBearr%,$(SRC_FILES))
-$(BUILD_SRC_DIR)/GrrBearr%.txt: $(SRC_DIR)/GrrBearr%.txt $(BUILD_SRC_DIR)
+
+
+$(BUILD_SRC_DIR)/GrrBearr%.txt: $(BUILD_SRC_DIR)
+$(BUILD_SRC_DIR)/GrrBearr%.txt: $(SRC_DIR)/GrrBearr%.txt
 	( cat "$<" | sed -e "s|//notes: tag|//notes: (GrrBearr) tag|" ) > "$@"
 
 
 # My List
 $(GRRBEARR_TXT): $(BUILD_DIR)
-$(GRRBEARR_TXT): $(LIST_HEADER) $(filter $(BUILD_SRC_DIR)/GrrBearr%.txt,$(BUILD_FILES))
+$(GRRBEARR_TXT): TITLE=GrrBearr - Wishlists
+$(GRRBEARR_TXT): DESC=A list of S17 rolls, along with other odd rolls from previous seasons.
+$(GRRBEARR_TXT): $(filter $(BUILD_SRC_DIR)/GrrBearr%.txt,$(BUILD_FILES))
 	$(info Target: $@ )
 	$(info Sources: $^ )
-	cat $(filter %.txt,$^) > $@
+
+	( $(call build_header,$(TITLE),$(DESC)) ) > $@
+	( $(call build_info) ) >> $@
+	cat $(filter %.txt,$^) >> $@
+
 
 # Combined Lists
 $(WISHLIST_TXT): $(BUILD_DIR)
-$(WISHLIST_TXT): $(LIST_HEADER) $(filter %.txt,$(BUILD_FILES))
+$(WISHLIST_TXT): TITLE=GrrBearr - Wishlist Multi-list
+$(WISHLIST_TXT): DESC=A combination list from voltron.txt, along with many of my desired rolls.
+$(WISHLIST_TXT): $(filter %.txt,$(BUILD_FILES))
 	$(info Target: $@ )
 	$(info Sources: $^ )
-	cat $(filter %.txt,$^) > $@
 
+	( $(call build_header,$(TITLE),$(DESC))) > $@
+
+	( $(call build_info) ) >> $@
+	cat $(filter %.txt,$^) >> $@
+
+# Combined target to force all to build 2 items
 $(BUILD_DIR)/completed: $(WISHLIST_TXT) $(GRRBEARR_TXT)
 
 all: $(BUILD_DIR)/completed

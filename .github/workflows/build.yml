@@ -13,25 +13,6 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: Get current time
-        id: timestamp
-        run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S')"
-
-      - name: Add build info
-        run: |
-            (
-              echo ''
-              echo "// Build Info:"
-              echo "//   Time:      ${{ steps.timestamp.outputs.now }}"
-              echo "//   Workflow:  ${GITHUB_WORKFLOW}"
-              echo "//   Event:     ${GITHUB_EVENT_NAME}"
-              echo "//   Job:       ${GITHUB_JOB}:${GITHUB_RUN_NUMBER}"
-              echo "//   Run ID:    ${GITHUB_RUN_ID}"
-              echo "//   Attempt:   ${GITHUB_RUN_ATTEMPT}"
-              echo ''
-              echo ''
-            ) >> ./src/_header.txt
-
       - name: Build
         run: make
 
