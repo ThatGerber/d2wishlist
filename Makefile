@@ -20,6 +20,7 @@ echo "//   Event:     $${GITHUB_EVENT_NAME}"; \
 echo "//   Job:       $${GITHUB_JOB}:$${GITHUB_RUN_NUMBER}"; \
 echo "//   Run ID:    $${GITHUB_RUN_ID}"; \
 echo "//   Attempt:   $${GITHUB_RUN_ATTEMPT}"; \
+echo "//   Result:    $${GITHUB_SERVER_URL}/$${GITHUB_REPOSITORY}/actions/runs/$${GITHUB_RUN_ID}"; \
 echo ''; \
 echo '';
 endef
