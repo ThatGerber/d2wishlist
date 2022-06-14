@@ -1,19 +1,21 @@
 # D2 Wishlist
 
-[![Build & Release](https://github.com/ThatGerber/d2wishlist/actions/workflows/update-wishlist.yml/badge.svg)](https://github.com/ThatGerber/d2wishlist/actions/workflows/update-wishlist.yml)
+[![Build & Release][badge_svg]][build_yml]
+[badge_svg]: https://github.com/ThatGerber/d2wishlist/actions/workflows/update-wishlist.yml/badge.svg
+[build_yml]: https://github.com/ThatGerber/d2wishlist/actions/workflows/update-wishlist.yml
 
 Combination of multiple DIM lists into one, with additional permutations.
 
-[Combined Wishlist, includes Voltron.txt][wishlist_txt]
-[Separate list for my rolls][grrbearr_txt]
+* [Combined Wishlist, includes Voltron.txt][wishlist_txt]
+* [Separate list for my rolls][grrbearr_txt]
 
 [wishlist_txt]: https://raw.githubusercontent.com/ThatGerber/d2wishlist/release/wishlist.txt
 [grrbearr_txt]: https://raw.githubusercontent.com/ThatGerber/d2wishlist/release/grrbearr.txt
 
 ## Docs
 
-- [Filters](/lib/dim/FILTERS.md)
-- [Wishlists](/lib/littlelight/README.md)
+* [Filters](/lib/dim/FILTERS.md)
+* [Wishlists](/lib/littlelight/README.md)
 
 ## Building
 
