@@ -127,7 +127,7 @@ ifdef $(INCLUDE_TRASH_LIST)
 else
 	$(info [$@] [INFO] Disabled trash list until they allow perks to be trashed)
 endif
-	$(add_tags_exe) "$@"
+	# $(add_tags_exe) "$@"
 
 
 # # # # # # # # # # # # # # #
