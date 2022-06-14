@@ -1,6 +1,7 @@
 # D2 Wishlist
 
 [![Build & Release][badge_svg]][build_yml]
+
 [badge_svg]: https://github.com/ThatGerber/d2wishlist/actions/workflows/update-wishlist.yml/badge.svg
 [build_yml]: https://github.com/ThatGerber/d2wishlist/actions/workflows/update-wishlist.yml
 

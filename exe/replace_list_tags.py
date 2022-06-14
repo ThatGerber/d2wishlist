@@ -15,15 +15,19 @@ class NoteMatcher:
     return self.matcher.match(source)
 
   def convert_tags(self, note):
-    line_prefix = self.match(note).group(1)
-    new_tags = " ".join([f"\\n#{a}" for a in self.match(note).group(3).split(',')])
+    result = self.match(note)
+    line_prefix = result.group(1)
+    new_tags = " ".join([f"#{a}" for a in result.group(3).split(',')])
 
     return f"{line_prefix}{new_tags}"
 
 
+matcher = NoteMatcher(r"^^(\/\/notes:.*)(tags:)([a-zA-Z\-,]*)")
+
+
 def main():
   source_file = sys.argv[1]
-  matcher = NoteMatcher(r"^^(\/\/notes:.*)(tags:)([a-zA-Z\-,]*)")
+
   with fileinput.FileInput(source_file, inplace=True) as file:
     for line in file:
       if matcher.match(line.rstrip()):
